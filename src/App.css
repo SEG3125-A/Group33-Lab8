@@ -17,6 +17,87 @@
   color: #61dafb;
 }
 
+.navbar {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-logo {
+  width: 50px;
+  height: auto;
+}
+
+.navbar-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-links li a:hover {
+  color: #ddd;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: transparent; /* Changed from 'none' to 'transparent' */
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #fff; /* Changed text color to match navbar links */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #333; /* Changed hover background color to match navbar background */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #333; /* Changed hover background color to match navbar background */
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

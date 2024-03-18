@@ -32,6 +32,30 @@ function App() {
         Welcome to UottawaFriends.com!
         </h1>
       </header>
+
+      <section className="tutors">
+        <div className="container">
+          <h2>Meet Our Tutors</h2>
+          <div className="tutors">
+            <div className="tutor-info">
+              <img src="tutor1.jpg" alt="Tutor 1" />
+              <h3>Tutor 1</h3>
+              <p>Tutor Description</p>
+            </div>
+            <div className="tutor-info">
+              <img src="tutor2.jpg" alt="Tutor 2" />
+              <h3>Tutor 2</h3>
+              <p>Tutor Description</p>
+            </div>
+            <div className="tutor-info">
+              <img src="tutor3.jpg" alt="Tutor 3" />
+              <h3>Tutor 3</h3>
+              <p>Tutor</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

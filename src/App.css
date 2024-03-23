@@ -96,6 +96,26 @@
   background-color: #333; 
 }
 
+.tutors {
+  padding: 20px 0; 
+}
+
+.tutors h2 {
+  text-align: center; 
+}
+
+.tutors-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.tutor-info {
+  width: 300px; 
+  margin: 20px; 
+  text-align: center; 
+}
+
+
 
 
 @keyframes App-logo-spin {

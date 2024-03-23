@@ -1,4 +1,6 @@
 import './App.css';
+import TutorCard from './TutorCard.js'; // Import the MediaCard component
+import ImageButtonFunc from './ImageButtonFunc.js';
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
           </ul>
         </div>
       </nav>
-
+      
       <header className="App-header">
         <h1>
         Welcome to UottawaFriends.com!
@@ -35,22 +37,35 @@ function App() {
 
       <section className="tutors">
         <div className="container">
+          <h2>Explore Subjects</h2>
+        </div>
+        <ImageButtonFunc />
+      </section>
+
+      <section className="tutors">
+        <div className="container">
           <h2>Meet Our Tutors</h2>
-          <div className="tutors">
+          <div className="tutors-container">
             <div className="tutor-info">
-              <img src="tutor1.jpg" alt="Tutor 1" />
-              <h3>Tutor 1</h3>
-              <p>Tutor Description</p>
+              <TutorCard 
+                tutorName="Tutor 1"
+                tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
+                //imageURL={}
+              />
             </div>
             <div className="tutor-info">
-              <img src="tutor2.jpg" alt="Tutor 2" />
-              <h3>Tutor 2</h3>
-              <p>Tutor Description</p>
+              <TutorCard 
+                tutorName="Tutor 2"
+                tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
+                //imageURL={}
+              />
             </div>
             <div className="tutor-info">
-              <img src="tutor3.jpg" alt="Tutor 3" />
-              <h3>Tutor 3</h3>
-              <p>Tutor</p>
+              <TutorCard 
+                tutorName="Tutor 3"
+                tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
+                //imageURL={}
+              />
             </div>
           </div>
         </div>

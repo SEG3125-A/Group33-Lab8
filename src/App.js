@@ -50,21 +50,21 @@ function App() {
               <TutorCard 
                 tutorName="Tutor 1"
                 tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
-                //imageURL={}
+                imageURL= "tutor1.png"
               />
             </div>
             <div className="tutor-info">
               <TutorCard 
                 tutorName="Tutor 2"
                 tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
-                //imageURL={}
+                imageURL= "tutor2.png"
               />
             </div>
             <div className="tutor-info">
               <TutorCard 
                 tutorName="Tutor 3"
                 tutorDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta tristique tempus. Nulla tempor mauris id ipsum tempor, at vestibulum ante blandit."
-                //imageURL={}
+                imageURL= "tutor3.png"
               />
             </div>
           </div>

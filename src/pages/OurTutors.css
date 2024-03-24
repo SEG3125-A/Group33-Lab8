@@ -1,0 +1,22 @@
+/* OurTutors.css */
+.page-container {
+    background-color: #fff;
+  }
+
+.tutors {
+  padding: 3px 0; 
+}
+
+.tutors h2 {
+  text-align: center;
+}
+
+.tutors-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.tutor-info {
+  margin: 2px; 
+  text-align: center; 
+}

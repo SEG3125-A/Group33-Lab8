@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Contact() {
+function StudyGroup() {
   return (
     <div>
       <h1>About</h1>
@@ -9,4 +9,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default StudyGroup;

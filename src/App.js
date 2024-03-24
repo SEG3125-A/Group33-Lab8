@@ -13,6 +13,10 @@ import OurTutors from "./pages/OurTutors";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
+import StudyGroup from "./pages/StudyGroup";
+import { FaRegUser } from 'react-icons/fa'; 
+import { GrWorkshop, GrGroup, GrSchedule, GrBook } from "react-icons/gr";
+import { TfiCommentsSmiley } from "react-icons/tfi";
 
 // Homepage
 function Home() {
@@ -74,11 +78,12 @@ function App() {
               <img src="UOttFriendsLogo.png" className="navbar-logo" alt="logo" />
             </Link>
             <ul className="navbar-links">
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/our-tutors">Our Tutors</Link></li>
+              <li><Link to="/about"><FaRegUser /> About</Link></li>
+              <li><Link to="/our-tutors"><GrWorkshop /> Our Tutors</Link></li>
+              <li><Link to="/booking"><GrSchedule /> Book Tutor</Link></li>
               <li>
                 <div className="dropdown">
-                <Link to="/courses" className="dropbtn">Courses</Link>
+                <Link to="/courses" className="dropbtn"><GrBook /> Courses</Link>
                   <div className="dropdown-content">
                     {/* Can add in links to specific courses here */}
                     <a href="#">Add courses here</a>
@@ -88,7 +93,8 @@ function App() {
                   </div>
                 </div>
               </li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/study-group"><GrGroup /> Study Groups</Link></li>
+              <li><Link to="/contact"><TfiCommentsSmiley /> Contact</Link></li>
             </ul>
           </div>
         </nav>
@@ -99,6 +105,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/study-group" element={<StudyGroup />} />
         </Routes>
       </Router>
     </div>

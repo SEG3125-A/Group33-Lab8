@@ -18,6 +18,7 @@ function Home() {
   return (
     <div>
       <header className="App-header">
+        <div className="overlay"></div>
         <h1>Welcome to UottawaFriends.com!</h1>
       </header>
 

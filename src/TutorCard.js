@@ -5,10 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function TutorCard({ tutorName, tutorDescription, imageURL }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
+      {/* Link to bring user to either tutors page or booking page when they click on card */}
+      {/* <Link to="/our-tutors" style={{ textDecoration: 'none' }}> */}
       <CardActionArea>
         <CardMedia
           component="img"
@@ -25,6 +28,7 @@ export default function TutorCard({ tutorName, tutorDescription, imageURL }) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      {/* </Link> */}
     </Card>
   );
 }

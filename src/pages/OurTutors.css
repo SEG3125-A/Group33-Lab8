@@ -3,20 +3,38 @@
     background-color: #fff;
   }
 
-.tutors {
+.tutors2 {
   padding: 3px 0; 
 }
 
-.tutors h2 {
+.tutors2 h2 {
   text-align: center;
 }
 
-.tutors-container {
+.tutors2-container {
   display: flex;
   justify-content: center; 
 }
 
-.tutor-info {
+.tutor2-info {
   margin: 2px; 
+  text-align: center; 
+}
+
+.tutors2 {
+  padding: 20px 0; 
+}
+
+.tutors2 h2 {
+  text-align: center;
+}
+
+.tutors2-container {
+  display: flex;
+  justify-content: center; 
+}
+
+.tutor2-info {
+  width: 300px; 
   text-align: center; 
 }

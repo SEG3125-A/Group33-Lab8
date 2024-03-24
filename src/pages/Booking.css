@@ -1,0 +1,12 @@
+/* Booking.css */
+
+.booking {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .booking .MuiAccordion-root,
+  .booking .MuiAccordionSummary-root,
+  .booking .MuiAccordionDetails-root {
+    background-color: #afcbd9;
+  }

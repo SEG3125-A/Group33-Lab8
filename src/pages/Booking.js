@@ -6,6 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Fade from '@mui/material/Fade';
+import './Booking.css';
 
 export default function Booking() {
   const [expanded, setExpanded] = React.useState(false);
@@ -15,7 +16,7 @@ export default function Booking() {
   };
 
   return (
-    <div style={{ width: '50%', margin: '0 auto' }}>
+    <div className="booking">
         <h2>Booking Page</h2>
       <Accordion 
         expanded={expanded}
@@ -79,10 +80,23 @@ export default function Booking() {
           <Typography>Personal information</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+            <form>
+                <div>
+                    <label htmlFor="name">Name:</label>
+                    <input type="text" id="name" name="name" />
+                </div>
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" id="email" name="email" />
+                </div>
+                <div>
+                    <label htmlFor="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" />
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </AccordionDetails>
       </Accordion>
     </div>

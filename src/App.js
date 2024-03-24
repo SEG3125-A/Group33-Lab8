@@ -12,6 +12,7 @@ import About from "./pages/About";
 import OurTutors from "./pages/OurTutors";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
+import Booking from "./pages/Booking";
 
 // Homepage
 function Home() {
@@ -97,6 +98,7 @@ function App() {
           <Route path="/our-tutors" element={<OurTutors />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/booking" element={<Booking />} />
         </Routes>
       </Router>
     </div>

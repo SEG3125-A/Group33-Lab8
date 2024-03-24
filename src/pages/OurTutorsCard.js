@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+
 
 export default function OurTutorsCard({ tutorName, tutorDescription, tutorCourses, imageURL }) {
   return (
@@ -27,7 +29,9 @@ export default function OurTutorsCard({ tutorName, tutorDescription, tutorCourse
         </Typography>
       </CardContent>
       <CardActions sx={{ justifyContent: 'center' }}>
-        <Button size="small">Book Now</Button>
+        <Link to="/booking">
+          <Button size="small">Book Now</Button>
+        </Link>
       </CardActions>
     </Card>
   );

@@ -8,18 +8,13 @@ import './ImageButton.css';
 
 const images = [
   {
-    url: '/courseImages/data-science.png',
-    title: 'Computer Science',
+    url: '/courseImages/business.png',
+    title: 'Administration',
     width: '25%',
   },
   {
-    url: '/courseImages/chemistry-class.png',
-    title: 'Chemistry',
-    width: '25%',
-  },
-  {
-    url: '/courseImages/engineer.png',
-    title: 'Software Engineering',
+    url: '/courseImages/biochemistry.png',
+    title: 'Biochemistry',
     width: '25%',
   },
   {
@@ -28,23 +23,13 @@ const images = [
     width: '25%',
   },
   {
-    url: '/courseImages/math.png',
-    title: 'Mathematics',
+    url: '/courseImages/chemistry-class.png',
+    title: 'Chemistry',
     width: '25%',
   },
   {
-    url: '/courseImages/healthcare.png',
-    title: 'Health Science',
-    width: '25%',
-  },
-  {
-    url: '/courseImages/business.png',
-    title: 'Administration',
-    width: '25%',
-  },
-  {
-    url: '/courseImages/biochemistry.png',
-    title: 'Biochemistry',
+    url: '/courseImages/data-science.png',
+    title: 'Computer Science',
     width: '25%',
   },
   {
@@ -63,8 +48,23 @@ const images = [
     width: '25%',
   },
   {
+    url: '/courseImages/healthcare.png',
+    title: 'Health Science',
+    width: '25%',
+  },
+  {
+    url: '/courseImages/math.png',
+    title: 'Mathematics',
+    width: '25%',
+  },
+  {
     url: '/courseImages/science-book.png',
     title: 'Psychology',
+    width: '25%',
+  },
+  {
+    url: '/courseImages/engineer.png',
+    title: 'Software Engineering',
     width: '25%',
   },
 ];

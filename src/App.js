@@ -1,38 +1,24 @@
 import './App.css';
-import TutorCard from './TutorCard.js'; // Import the MediaCard component
+import TutorCard from './TutorCard.js';
 import ImageButtonFunc from './ImageButtonFunc.js';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import About from "./pages/About";
+import OurTutors from "./pages/OurTutors";
+import Courses from "./pages/Courses";
+import Contact from "./pages/Contact";
 
-function App() {
+// Homepage
+function Home() {
   return (
-
-    <div className="App">
-      <nav className="navbar">
-        <div className="container">
-          <img src="UOttFriendsLogo.png" className="navbar-logo" alt="logo" />
-          <ul className="navbar-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Our Tutors</a></li>
-            <li>
-              <div className="dropdown">
-                <button className="dropbtn">Courses</button>
-                <div className="dropdown-content">
-                  <a href="#">Add courses here</a>
-                  <a href="#">...</a>
-                  <a href="#">...</a>
-                  <a href="#">...</a>
-                </div>
-              </div>
-            </li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      
+    <div>
       <header className="App-header">
-        <h1>
-        Welcome to UottawaFriends.com!
-        </h1>
+        <h1>Welcome to UottawaFriends.com!</h1>
       </header>
 
       <section className="tutors">
@@ -70,9 +56,50 @@ function App() {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
 
+// Routing different pages from navbar
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <nav className="navbar">
+          <div className="container">
+            {/* Link to homepage */}
+            <Link to="/">
+              <img src="UOttFriendsLogo.png" className="navbar-logo" alt="logo" />
+            </Link>
+            <ul className="navbar-links">
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/our-tutors">Our Tutors</Link></li>
+              <li>
+                <div className="dropdown">
+                <Link to="/courses" className="dropbtn">Courses</Link>
+                  <div className="dropdown-content">
+                    <a href="#">Add courses here</a>
+                    <a href="#">...</a>
+                    <a href="#">...</a>
+                    <a href="#">...</a>
+                  </div>
+                </div>
+              </li>
+              <li><Link to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/our-tutors" element={<OurTutors />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
 
 export default App;
+

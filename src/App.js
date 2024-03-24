@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <div className="container">
-          {/* <img src={logo} className="navbar-logo" alt="logo" /> */}
+          <img src="UOttFriendsLogo.png" className="navbar-logo" alt="logo" />
           <ul className="navbar-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -44,7 +44,7 @@ function App() {
 
       <section className="tutors">
         <div className="container">
-          <h2>Meet Our Tutors</h2>
+          <h2>Meet Some of Our Tutors</h2>
           <div className="tutors-container">
             <div className="tutor-info">
               <TutorCard 

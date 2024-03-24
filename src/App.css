@@ -18,7 +18,7 @@
 }
 
 .navbar {
-  background-color: #333;
+  /* background-color: #333; */
   padding: 10px 0;
 }
 
@@ -48,12 +48,12 @@
 }
 
 .navbar-links li a {
-  color: #fff;
+  color: #333;
   text-decoration: none;
 }
 
 .navbar-links li a:hover {
-  color: #ddd;
+  color: #9cd7f1;
 }
 
 .dropdown {
@@ -101,7 +101,7 @@
 }
 
 .tutors h2 {
-  text-align: center; 
+  text-align: center;
 }
 
 .tutors-container {
@@ -114,6 +114,8 @@
   margin: 20px; 
   text-align: center; 
 }
+
+
 
 
 

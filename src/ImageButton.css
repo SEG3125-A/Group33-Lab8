@@ -1,0 +1,53 @@
+/* Adapted from https://mui.com/material-ui/react-button/ */
+.image-button {
+    position: relative;
+    height: 200px;
+  }
+  
+  .image-src {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center 40%;
+  }
+  
+  .image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .image-backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.4;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .image-button:hover .image-backdrop {
+    opacity: 0.25; 
+  }
+  
+  .image-marked {
+    height: 3px;
+    width: 18px;
+    background-color: white;
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 9px);
+    transition: opacity 0.3s ease-in-out;
+  }
+  

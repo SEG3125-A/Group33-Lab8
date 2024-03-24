@@ -1,10 +1,15 @@
 import React from 'react';
+import ImageButtonFunc from '../ImageButton.js';
 
 function Courses() {
   return (
     <div>
-      <h1>Courses</h1>
-      {/* Add content for page here */}
+      <section className="subjects">
+        <div className="container">
+          <h2>Explore Subjects</h2>
+        </div>
+        <ImageButtonFunc />
+      </section>
     </div>
   );
 }

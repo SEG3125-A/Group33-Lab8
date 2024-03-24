@@ -1,6 +1,6 @@
 import './App.css';
 import TutorCard from './TutorCard.js';
-import ImageButtonFunc from './ImageButtonFunc.js';
+import ImageButtonFunc from './ImageButton.js';
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -22,12 +22,12 @@ function Home() {
         <h1>Welcome to UottawaFriends.com!</h1>
       </header>
 
-      <section className="tutors">
+      {/* <section className="tutors">
         <div className="container">
           <h2>Explore Subjects</h2>
         </div>
         <ImageButtonFunc />
-      </section>
+      </section> */}
 
       <section className="tutors">
         <div className="container">

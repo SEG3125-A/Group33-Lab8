@@ -21,7 +21,7 @@ import { TfiCommentsSmiley } from "react-icons/tfi";
 // Homepage
 function Home() {
   //state code inspired by react legacy documentation: https://legacy.reactjs.org/docs/hooks-state.html
-  const [translate, setTranslate] = useState(false);
+  const [translate, setTranslate] = useState(true);
 
   const change = () => {
     setTranslate(!translate);
@@ -70,7 +70,7 @@ function Home() {
 // Routing different pages from navbar
 function App() {
   //state code inspired by react legacy documentation: https://legacy.reactjs.org/docs/hooks-state.html
-  const [translate, setTranslate] = useState(false);
+  const [translate, setTranslate] = useState(true);
   const change = () => {
     setTranslate(!translate);
   };

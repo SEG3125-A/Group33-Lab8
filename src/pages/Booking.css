@@ -1,7 +1,7 @@
 /* Booking.css */
 
 .booking {
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
   }
   
@@ -9,4 +9,10 @@
   .booking .MuiAccordionSummary-root,
   .booking .MuiAccordionDetails-root {
     background-color: #afcbd9;
+  }
+
+  .select-box {
+    width: 300px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    font-size: 16px; /* Adjust the font size as needed */
   }

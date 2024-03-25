@@ -6,6 +6,15 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Fade from '@mui/material/Fade';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 import './Booking.css';
 
 export default function Booking() {
@@ -63,6 +72,18 @@ export default function Booking() {
     setSelectedTutor(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    console.log({
+      fname: formData.get('fname'),
+      lname: formData.get('lname'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+    });
+    event.target.reset();
+  };
+
   return (
     <div className="booking">
         <h2>Booking Page</h2>
@@ -83,14 +104,17 @@ export default function Booking() {
           <Typography>Select a subject</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <form>
-            <select value={selectedSubject} onChange={handleSubjectChange}>
-              <option value="">Select a subject</option>
-              {Object.keys(subjectCourses).map((subject) => (
-                <option key={subject} value={subject}>{subject}</option>
-              ))}
-            </select>
-          </form>
+          <Select
+            value={selectedSubject}
+            onChange={handleSubjectChange}
+            fullWidth  
+            sx={{ minWidth: '200px' }} 
+          >
+            <MenuItem value="">Select a subject</MenuItem>
+            {Object.keys(subjectCourses).map((subject) => (
+              <MenuItem key={subject} value={subject}>{subject}</MenuItem>
+            ))}
+          </Select>
         </AccordionDetails>
       </Accordion>
 
@@ -105,20 +129,23 @@ export default function Booking() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Select a course</Typography>
+        <Typography>Select a course</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {subjectCourses[selectedSubject]?.length ? (
-            <form>
-              <select value={selectedCourse} onChange={handleCourseChange}>
-                <option value="">Select a course</option>
-                {subjectCourses[selectedSubject].map((course) => (
-                  <option key={course} value={course}>{course}</option>
-                ))}
-              </select>
-            </form>
+          <Select
+            value={selectedCourse}
+            onChange={handleCourseChange}
+            fullWidth  
+            sx={{ minWidth: '200px' }} 
+          >
+            <MenuItem value="">Select a course</MenuItem>
+            {subjectCourses[selectedSubject].map((course) => (
+              <MenuItem key={course} value={course}>{course}</MenuItem>
+            ))}
+          </Select>
           ) : (
-            <Typography>No tutors available for this subject</Typography>
+          <Typography>No tutors available for this subject</Typography>
           )}
         </AccordionDetails>
       </Accordion>
@@ -126,7 +153,7 @@ export default function Booking() {
       <Accordion 
         expanded={!!selectedCourse} // Expand only if course is selected
         sx={{
-          '& .MuiAccordion-region': { height: !!selectedCourse ? 'auto' : 0 },
+        '& .MuiAccordion-region': { height: !!selectedCourse ? 'auto' : 0 },
         }}
       >
         <AccordionSummary
@@ -134,20 +161,23 @@ export default function Booking() {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          <Typography>Select a tutor</Typography>
+        <Typography>Select a tutor</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <form>
-            <select value={selectedTutor} onChange={handleTutorChange}>
-              <option value="">Select a tutor</option>
-              {/* Filter tutors based on selected course */}
-              {Object.keys(tutors).map((tutor) => (
-                tutors[tutor].includes(selectedCourse) && (
-                  <option key={tutor} value={tutor}>{tutor}</option>
-                )
-              ))}
-            </select>
-          </form>
+          <Select
+            value={selectedTutor}
+            onChange={handleTutorChange}
+            fullWidth  
+            sx={{ minWidth: '200px' }} 
+          >
+            <MenuItem value="">Select a tutor</MenuItem>
+            {/* Filter tutors based on selected course */}
+            {Object.keys(tutors).map((tutor) => (
+            tutors[tutor].includes(selectedCourse) && (
+              <MenuItem key={tutor} value={tutor}>{tutor}</MenuItem>
+            )
+            ))}
+          </Select>
         </AccordionDetails>
       </Accordion>
 
@@ -160,40 +190,74 @@ export default function Booking() {
           <Typography>Select a date and time</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DateTimePicker']}>
+              <DateTimePicker label="Select date and time" />
+            </DemoContainer>
+          </LocalizationProvider>
         </AccordionDetails>
       </Accordion>
+
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
+          aria-controls="panel4-content"
+          id="panel4-header"
         >
           <Typography>Personal information</Typography>
         </AccordionSummary>
         <AccordionDetails>
-            <form>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name" />
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" />
-                </div>
-                <div>
-                    <label htmlFor="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" />
-                </div>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+          <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="First Name"
+                  id="fname"
+                  name="fname"
+                  fullWidth
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Last Name"
+                  id="lname"
+                  name="lname"
+                  fullWidth
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Email"
+                  id="email"
+                  name="email"
+                  type="email"
+                  fullWidth
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Phone"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  fullWidth
+                  required
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button type="submit" variant="contained" color="primary">
+                  Submit
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
         </AccordionDetails>
       </Accordion>
+
+    <br />        
     </div>
   );
 }

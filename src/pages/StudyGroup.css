@@ -1,0 +1,75 @@
+.study-group {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.study-group h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.study-group form {
+  margin-bottom: 20px;
+}
+
+.study-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.study-group .MuiAccordion-root {
+  margin-bottom: 20px;
+}
+
+.study-group .MuiAccordionSummary-root {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+}
+
+.study-group .MuiAccordionSummary-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.study-group .MuiAccordionDetails-root {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.study-group .group-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.study-group .group-info button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.study-group .group-info button:hover {
+  background-color: #0056b3;
+}
+
+.study-group .group-info button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.study-group .group-info div {
+  margin-bottom: 5px;
+}

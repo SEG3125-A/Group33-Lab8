@@ -1,5 +1,6 @@
 // Adapted from https://mui.com/material-ui/react-accordion/
 import * as React from 'react';
+import {useState} from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -22,6 +23,11 @@ export default function Booking() {
   const [selectedSubject, setSelectedSubject] = React.useState('');
   const [selectedCourse, setSelectedCourse] = React.useState('');
   const [selectedTutor, setSelectedTutor] = React.useState('');
+  //translation state code inspired by react legacy documentation as mentioned in app.js
+  const [translate, setTranslate] = useState(true);
+  const change = () => {
+    setTranslate(!translate);
+  };
 
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
@@ -29,18 +35,19 @@ export default function Booking() {
 
   const subjectCourses = {
     Administration: ['ADM1370', 'ADM2302', 'ADM2303', 'ADM2304', 'ADM3302'],
-    Biochemistry: ['BCH3170', 'BCH3346'],
-    Biology: ['BIO1140', 'BIO2133', 'BIO2135'],
-    Chemistry: ['CHEM1311', 'CHEM1321', 'CHEM2123', 'CHM2128', 'CHM2132'],
-    'Computer Science': ['ITI110', 'ITI1101', 'ITI1120', 'ITI1121','CSI2110', 'CSI2120'],
-    Economics: [],
-    English: ['ENG1100', 'ENG1112', 'ENG1124', 'ENG1131', 'ENG1141'],
-    Geology: [],
-    'Health Science': ['HSS1100', 'HSS1101', 'HSS2102', 'HSS3106', 'HSS3108'],
-    Mathematics: ['MATH1101', 'MATH1102', 'MATH1201'],
-    Psychology: [],
-    'Software Engineering': []
+    [translate?"Biochemistry":"Biochimie"]: ['BCH3170', 'BCH3346'],
+    [translate?"Biology":"La biologie"]: ['BIO1140', 'BIO2133', 'BIO2135'],
+    [translate?"Chemistry":"Chimie"]: ['CHEM1311', 'CHEM1321', 'CHEM2123', 'CHM2128', 'CHM2132'],
+    [translate?'Computer Science':"L'informatique"]: ['ITI110', 'ITI1101', 'ITI1120', 'ITI1121','CSI2110', 'CSI2120'],
+    [translate?'Economics':'Économie']: [],
+    [translate?"English":"Anglaise"]: ['ENG1100', 'ENG1112', 'ENG1124', 'ENG1131', 'ENG1141'],
+    [translate?"Geology":"Géologie"]: [],
+    [translate?'Health Science':"Sciences de la santé"]: ['HSS1100', 'HSS1101', 'HSS2102', 'HSS3106', 'HSS3108'],
+    [translate?"Mathematics":"Mathématiques"]: ['MATH1101', 'MATH1102', 'MATH1201'],
+    [translate?"Psychology":"Psychologie"]: [],
+    [translate?'Software Engineering':"Génie logiciel"]: []
   };
+
 
   const tutors = {
     Dennis: ['MAT1320', 'MAT1321', 'MAT1322', 'PHY1121', 'PHY1122'],
@@ -86,7 +93,8 @@ export default function Booking() {
 
   return (
     <div className="booking">
-        <h2>Booking Page</h2>
+        <button onClick={change}>Translate/Traduire</button>
+        <h2>{translate? "Booking Page":"Page de réservation"}</h2>
       <Accordion 
         expanded={expanded}
         onChange={handleExpansion}
@@ -101,7 +109,7 @@ export default function Booking() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>Select a subject</Typography>
+          <Typography>{translate? "Select a subject": "Sélectionnez un sujet"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Select
@@ -110,7 +118,7 @@ export default function Booking() {
             fullWidth  
             sx={{ minWidth: '200px' }} 
           >
-            <MenuItem value="">Select a subject</MenuItem>
+            <MenuItem value="">{translate? "Select a subject": "Sélectionnez un sujet"}</MenuItem>
             {Object.keys(subjectCourses).map((subject) => (
               <MenuItem key={subject} value={subject}>{subject}</MenuItem>
             ))}
@@ -129,7 +137,7 @@ export default function Booking() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-        <Typography>Select a course</Typography>
+        <Typography>{translate?"Select a course": "Sélectionnez un cours"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {subjectCourses[selectedSubject]?.length ? (
@@ -139,13 +147,13 @@ export default function Booking() {
             fullWidth  
             sx={{ minWidth: '200px' }} 
           >
-            <MenuItem value="">Select a course</MenuItem>
+            <MenuItem value="">{translate?"Select a course": "Sélectionnez un cours"}</MenuItem>
             {subjectCourses[selectedSubject].map((course) => (
               <MenuItem key={course} value={course}>{course}</MenuItem>
             ))}
           </Select>
           ) : (
-          <Typography>No tutors available for this subject</Typography>
+          <Typography>{translate?"No tutors available for this subject":"Aucun tuteur disponible pour ce sujet"}</Typography>
           )}
         </AccordionDetails>
       </Accordion>
@@ -161,7 +169,7 @@ export default function Booking() {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-        <Typography>Select a tutor</Typography>
+        <Typography>{translate?"Select a tutor":"Sélectionnez un tuteur"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Select
@@ -170,7 +178,7 @@ export default function Booking() {
             fullWidth  
             sx={{ minWidth: '200px' }} 
           >
-            <MenuItem value="">Select a tutor</MenuItem>
+            <MenuItem value="">{translate?"Select a tutor":"Sélectionnez un tuteur"}</MenuItem>
             {/* Filter tutors based on selected course */}
             {Object.keys(tutors).map((tutor) => (
             tutors[tutor].includes(selectedCourse) && (
@@ -187,12 +195,12 @@ export default function Booking() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Select a date and time</Typography>
+          <Typography>{translate?"Select a date and time":"Sélectionnez une date et une heure"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DateTimePicker']}>
-              <DateTimePicker label="Select date and time" />
+              <DateTimePicker label={translate?"Select a date and time":"Sélectionnez une date et une heure"} />
             </DemoContainer>
           </LocalizationProvider>
         </AccordionDetails>
@@ -204,14 +212,14 @@ export default function Booking() {
           aria-controls="panel4-content"
           id="panel4-header"
         >
-          <Typography>Personal information</Typography>
+          <Typography>{translate?"Personal information":"Informations personnelles"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <form onSubmit={handleSubmit} style={{ width: '100%' }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  label="First Name"
+                  label={translate?"First Name":"Prénom"}
                   id="fname"
                   name="fname"
                   fullWidth
@@ -220,7 +228,7 @@ export default function Booking() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  label="Last Name"
+                  label={translate?"Last Name":"Nom de famille"}
                   id="lname"
                   name="lname"
                   fullWidth
@@ -239,7 +247,7 @@ export default function Booking() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  label="Phone"
+                  label={translate?"Phone:":"Téléphone"}
                   id="phone"
                   name="phone"
                   type="tel"
@@ -249,7 +257,7 @@ export default function Booking() {
               </Grid>
               <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="primary">
-                  Submit
+                {translate?"Submit":"Soumettre"}
                 </Button>
               </Grid>
             </Grid>

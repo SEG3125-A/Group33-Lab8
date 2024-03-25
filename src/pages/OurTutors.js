@@ -3,8 +3,11 @@ import './OurTutors.css';
 import OurTutorsCard from './OurTutorsCard.js';
 
 function OurTutors() {
+  const styles = {
+    color: '#576065',
+  };
   return (
-    <div className="page-container">
+    <div className="page-container" style={styles}>
       <h1>Our Tutors</h1>
       <section className="tutors2">
         <div className="container">

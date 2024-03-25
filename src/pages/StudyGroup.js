@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import './StudyGroup.css';
 
 export default function StudyGroup() {
+
   const [expanded, setExpanded] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
@@ -70,8 +71,12 @@ export default function StudyGroup() {
     setGroups(updatedGroups);
   };
 
+  const styles = {
+    color: '#576065',
+  };
+
   return (
-    <div className="study-group">
+    <div className="study-group" style={styles}>
       <h2>Study Groups</h2>
       <Accordion
         expanded={expanded}

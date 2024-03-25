@@ -18,6 +18,10 @@ import Button from '@mui/material/Button';
 import './Booking.css';
 
 export default function Booking() {
+  const styles = {
+    color: '#576065',
+  };
+  
   const [expanded, setExpanded] = React.useState(false);
   const [selectedSubject, setSelectedSubject] = React.useState('');
   const [selectedCourse, setSelectedCourse] = React.useState('');
@@ -85,7 +89,7 @@ export default function Booking() {
   };
 
   return (
-    <div className="booking">
+    <div className="booking" style={styles}>
         <h2>Booking Page</h2>
       <Accordion 
         expanded={expanded}

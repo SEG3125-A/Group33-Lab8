@@ -14,6 +14,7 @@ import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import StudyGroup from "./pages/StudyGroup";
+import Administration from "./pages/Administration";
 import { FaRegUser } from 'react-icons/fa'; 
 import { GrWorkshop, GrGroup, GrSchedule, GrBook } from "react-icons/gr";
 import { TfiCommentsSmiley } from "react-icons/tfi";
@@ -94,10 +95,18 @@ function App() {
                 <Link to="/courses" className="dropbtn"><GrBook />{translate? "Courses":"Cours"}</Link>
                   <div className="dropdown-content">
                     {/* Can add in links to specific courses here */}
-                    <a href="#">Add courses here</a>
-                    <a href="#">...</a>
-                    <a href="#">...</a>
-                    <a href="#">...</a>
+                    <Link to="/administration">Administration</Link>
+                    <a href="#">Biochemistry</a>
+                    <a href="#">Biology</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Comp. Science</a>
+                    <a href="#">Economics</a>
+                    <a href="#">English</a>
+                    <a href="#">Geology</a>
+                    <a href="#">Health Science</a>
+                    <a href="#">Mathematics</a>
+                    <a href="#">Psychology</a>
+                    <a href="#">Soft. Engineering</a>
                   </div>
                 </div>
               </li>
@@ -115,6 +124,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/study-group" element={<StudyGroup />} />
+          <Route path="/administration" element={<Administration />} />
+
         </Routes>
       </Router>
     </div>

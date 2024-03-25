@@ -1,18 +1,47 @@
 /* Booking.css */
 
 .booking {
-    width: 60%;
-    margin: 0 auto;
-  }
-  
-  .booking .MuiAccordion-root,
-  .booking .MuiAccordionSummary-root,
-  .booking .MuiAccordionDetails-root {
-    background-color: #afcbd9;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
-  .select-box {
-    width: 300px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
-    font-size: 16px; /* Adjust the font size as needed */
-  }
+.booking h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.booking form {
+  margin-bottom: 20px;
+}
+
+.booking select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.booking .MuiAccordion-root {
+  margin-bottom: 20px;
+}
+
+.booking .MuiAccordionSummary-root {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #ccc;
+}
+
+.booking .MuiAccordionSummary-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking .MuiAccordionDetails-root {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}

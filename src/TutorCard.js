@@ -11,7 +11,7 @@ export default function TutorCard({ tutorName, tutorDescription, imageURL }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       {/* Link to bring user to either tutors page or booking page when they click on card */}
-      {/* <Link to="/our-tutors" style={{ textDecoration: 'none' }}> */}
+      <Link to="/our-tutors" style={{ textDecoration: 'none', color: 'inherit' }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -28,7 +28,7 @@ export default function TutorCard({ tutorName, tutorDescription, imageURL }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* </Link> */}
+      </Link>
     </Card>
   );
 }

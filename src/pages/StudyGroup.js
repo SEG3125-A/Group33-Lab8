@@ -14,6 +14,11 @@ export default function StudyGroup() {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
   const [groups, setGroups] = useState({});
+  //translation state code inspired by react legacy documentation as mentioned in app.js
+  const [translate, setTranslate] = useState(true);
+  const change = () => {
+    setTranslate(!translate);
+  };
 
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
@@ -21,17 +26,17 @@ export default function StudyGroup() {
 
   const subjectCourses = {
     Administration: ['ADM1370', 'ADM2302', 'ADM2303', 'ADM2304', 'ADM3302'],
-    Biochemistry: ['BCH3170', 'BCH3346'],
-    Biology: ['BIO1140', 'BIO2133', 'BIO2135'],
-    Chemistry: ['CHEM1311', 'CHEM1321', 'CHEM2123', 'CHM2128', 'CHM2132'],
-    'Computer Science': ['ITI110', 'ITI1101', 'ITI1120', 'ITI1121','CSI2110', 'CSI2120'],
-    Economics: [],
-    English: ['ENG1100', 'ENG1112', 'ENG1124', 'ENG1131', 'ENG1141'],
-    Geology: [],
-    'Health Science': ['HSS1100', 'HSS1101', 'HSS2102', 'HSS3106', 'HSS3108'],
-    Mathematics: ['MATH1101', 'MATH1102', 'MATH1201'],
-    Psychology: [],
-    'Software Engineering': []
+    [translate?"Biochemistry":"Biochimie"]: ['BCH3170', 'BCH3346'],
+    [translate?"Biology":"La biologie"]: ['BIO1140', 'BIO2133', 'BIO2135'],
+    [translate?"Chemistry":"Chimie"]: ['CHEM1311', 'CHEM1321', 'CHEM2123', 'CHM2128', 'CHM2132'],
+    [translate?'Computer Science':"L'informatique"]: ['ITI110', 'ITI1101', 'ITI1120', 'ITI1121','CSI2110', 'CSI2120'],
+    [translate?'Economics':'Économie']: [],
+    [translate?"English":"Anglaise"]: ['ENG1100', 'ENG1112', 'ENG1124', 'ENG1131', 'ENG1141'],
+    [translate?"Geology":"Géologie"]: [],
+    [translate?'Health Science':"Sciences de la santé"]: ['HSS1100', 'HSS1101', 'HSS2102', 'HSS3106', 'HSS3108'],
+    [translate?"Mathematics":"Mathématiques"]: ['MATH1101', 'MATH1102', 'MATH1201'],
+    [translate?"Psychology":"Psychologie"]: [],
+    [translate?'Software Engineering':"Génie logiciel"]: []
   };
 
   const handleSubjectChange = (event) => {
@@ -77,7 +82,8 @@ export default function StudyGroup() {
 
   return (
     <div className="study-group" style={styles}>
-      <h2>Study Groups</h2>
+       <button onClick={change}>Translate/Traduire</button>
+      <h2>{translate?"Study Groups":"Groupes d'étude"}</h2>
       <Accordion
         expanded={expanded}
         onChange={handleExpansion}
@@ -90,12 +96,12 @@ export default function StudyGroup() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography>Select a Subject</Typography>
+          <Typography>{translate? "Select a subject": "Sélectionnez un sujet"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <form>
             <select value={selectedSubject} onChange={handleSubjectChange}>
-              <option value="">Select a Subject</option>
+              <option value="">{translate? "Select a subject": "Sélectionnez un sujet"}</option>
               {Object.keys(subjectCourses).map((subject) => (
                 <option key={subject} value={subject}>{subject}</option>
               ))}
@@ -115,20 +121,20 @@ export default function StudyGroup() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography>Select a Course</Typography>
+          <Typography>{translate?"Select a course": "Sélectionnez un cours"}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {subjectCourses[selectedSubject]?.length ? (
             <form>
               <select value={selectedCourse} onChange={handleCourseChange}>
-                <option value="">Select a Course</option>
+                <option value="">{translate?"Select a course": "Sélectionnez un cours"}</option>
                 {subjectCourses[selectedSubject].map((course) => (
                   <option key={course} value={course}>{course}</option>
                 ))}
               </select>
             </form>
           ) : (
-            <Typography>No courses available for this subject</Typography>
+            <Typography>{translate?"No courses available for this subject":"Aucun cours disponible pour ce sujet"}</Typography>
           )}
         </AccordionDetails>
       </Accordion>
@@ -145,17 +151,17 @@ export default function StudyGroup() {
           <AccordionDetails>
             <div className="group-info">
               <div>
-                <GroupIcon /> Members: {groups[groupName].members.length} / {groups[groupName].limit}
+                <GroupIcon /> {translate?"Members":"Membres"} {groups[groupName].members.length} / {groups[groupName].limit}
               </div>
               <div>
                 {groups[groupName].members.map((member, index) => (
                   <div key={index}>
                     <PersonIcon /> {member}
-                    <button onClick={() => leaveGroup(groupName, member)}>Leave Group</button>
+                    <button onClick={() => leaveGroup(groupName, member)}>{translate?"Leave Group":"Quitter le groupe"}</button>
                   </div>
                 ))}
               </div>
-              <button onClick={() => joinGroup(groupName)}>Join Group</button>
+              <button onClick={() => joinGroup(groupName)}>{translate?"Join Group":"Rejoindre le groupe"}</button>
             </div>
           </AccordionDetails>
         </Accordion>
@@ -163,4 +169,3 @@ export default function StudyGroup() {
     </div>
   );
 }
-
